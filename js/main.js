@@ -5,7 +5,3 @@ function preloadFunc() {
     }
 }
 window.onpaint = preloadFunc(); 
-
-function nightmodetoggle() {
-    document.getElementById('id1').style.color = 'red'
-}
