@@ -52,6 +52,11 @@ html, body {
     text-align: center;
     text-decoration: none;
     padding: 5px;
+    -webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
 }
 .navwrapper ul li a:hover:not(.active){
     color: grey;
@@ -174,6 +179,11 @@ html, body {
     margin: 8px;
     border-radius: 5px;
     padding: 4px;
+    -webkit-transition: background-color 0.5s;
+    -moz-transition:    background-color 0.5s;
+    -ms-transition:     background-color 0.5s;
+    -o-transition:      background-color 0.5s;
+    transition:         background-color 0.5s;
 }
 .introheader ul li:hover {
     background-color: rgba(0, 0, 0, 0.425);
