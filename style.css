@@ -94,6 +94,8 @@ html, body {
     display: flex;
     position: fixed;
     width: auto;
+    max-width: 80vw;
+    overflow: hidden;
     height: 70px;
     left: 50%;
     bottom: 0px;
