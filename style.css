@@ -6,6 +6,9 @@
 }
 
 html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     margin: 0px;
     padding: 0px;
     font-family: "League Spartan", sans-serif;
@@ -136,8 +139,8 @@ html, body {
 
 
 .intro {
-    z-index: 10;
     font-family: 'Rubik', sans-serif;
+    display: flex;
     position: absolute;
     user-select: none;
     width: 50vw;
@@ -223,23 +226,6 @@ html, body {
 
 
 
-
-
-
-
-.head {
-    float: left;
-    clear: left;
-    font-weight: 300;
-    font-family: 'Rubik', sans-serif;
-    font-size: 100px;
-    position: relative;
-    width: 100%;
-}
-.head p{
-    display: inline;
-    font-size: 25px !important;
-}
 
 
 
