@@ -144,6 +144,7 @@ html, body {
 
 
 .intro {
+    transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease-out;
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     font-family: 'Rubik', sans-serif;
@@ -151,8 +152,10 @@ html, body {
     user-select: none;
     width: 50vw;
     height: 50vh;
+    display: block;
     border: 1px solid black;
     border-radius: 15px;
+    opacity: 100;
 }
 .introheader {
     left: 0px;
@@ -197,6 +200,7 @@ html, body {
     border: 1px solid rgba(0, 0, 0, 0.425);
 }
 .introheader ul li:first-child {
+    cursor: default;
     width: 60px;
     justify-content: space-between;
     position: relative;

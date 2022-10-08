@@ -213,6 +213,24 @@ function terminaltext(){
     }, 400)
     }
 }
+function winx() {
+    document.getElementById("drag_div").style.opacity = "0";
+    setTimeout(() => {  document.getElementById("drag_div").style.display = "none"; }, 200);
+    
+}
+function winy() {
+    if (document.getElementById("drag_div").style.width === "50vw") {
+        document.getElementById("drag_div").style.width = "90vw";
+        document.getElementById("drag_div").style.height = "70vh";
+    } else {
+        document.getElementById("drag_div").style.width = "50vw";
+        document.getElementById("drag_div").style.height = "50vh";
+    }
+}
+function showconsole() {
+    document.getElementById("drag_div").style.display = "block";
+    setTimeout(() => {  document.getElementById("drag_div").style.opacity = "100"; }, 200);
+}
 
 window.onload = function() {
     checkbattery(), checktime(), drag(), terminaltext();
