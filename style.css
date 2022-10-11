@@ -169,13 +169,13 @@ html, body {
     background-color: rgba(0, 0, 0, 0.2);
 }
 .introheader ul {
+    margin-right: 200px !important;
     margin: 0px;
     padding: 0px;
     height: fit-content;
-    width: fit-content;
+    width: 100%;
     list-style: none;
     display: flex;
-    width: auto;
     position: relative;
     justify-content: space-between;
 }

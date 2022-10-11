@@ -38,8 +38,8 @@ function drag(){
 
         // position div to center
         let drag_rect = drag_div.getBoundingClientRect();
-        let left = "25";
-        let top = "50";
+        let left = "15";
+        let top = "40";
         drag_div.style.left = px(left);
         drag_div.style.top = px(top);
     }
@@ -214,22 +214,27 @@ function terminaltext(){
     }
 }
 function winx() {
-    document.getElementById("drag_div").style.opacity = "0";
-    setTimeout(() => {  document.getElementById("drag_div").style.display = "none"; }, 200);
+    let drag_div = document.getElementById("drag_div");
+    drag_div.style.opacity = "0";
+    setTimeout(() => {  drag_div.style.display = "none"; }, 200);
     
 }
 function winy() {
-    if (document.getElementById("drag_div").style.width === "50vw") {
-        document.getElementById("drag_div").style.width = "90vw";
-        document.getElementById("drag_div").style.height = "70vh";
+    let drag_div = document.getElementById("drag_div");
+    if (drag_div.style.width === "50vw") {
+        drag_div.style.width = "calc(99vw - 20px)";
+        drag_div.style.height = "calc(99vh - 130px)";
+
     } else {
-        document.getElementById("drag_div").style.width = "50vw";
-        document.getElementById("drag_div").style.height = "50vh";
+        drag_div.style.width = "50vw";
+        drag_div.style.height = "50vh";
+
     }
 }
 function showconsole() {
-    document.getElementById("drag_div").style.display = "block";
-    setTimeout(() => {  document.getElementById("drag_div").style.opacity = "100"; }, 200);
+    let drag_div = document.getElementById("drag_div");
+    drag_div.style.display = "block";
+    setTimeout(() => {  drag_div.style.opacity = "100"; }, 200);
 }
 
 window.onload = function() {

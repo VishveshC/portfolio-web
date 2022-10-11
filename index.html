@@ -13,8 +13,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/style.css">
 
-        <script src="js/main.js"></script>
-        <script src="js/other.js"></script>
+        <script src="js/main.js" defer></script>
+        <script src="js/other.js" defer></script>
     </head>
     <body>
         <div class="navbar">
@@ -46,9 +46,9 @@
             </div>
         </div>
 
-        <div class="intro" id="drag_div" style="width: 50vw; height: 50vh; left: 25px; top: 50px;" >
+        <div class="intro" id="drag_div" style="width: 50vw; height: 50vh; left: 15px; top: 40px;" >
             <div class="introheader" id="hit_div">
-                <ul>
+                <ul id="intro_header_ul">
                     <li>
                         <div class="x" onclick="winx()"></div>
                         <div class="y" onclick="winy()"></div>
@@ -71,6 +71,7 @@
             <img src="images/Finder.ico" alt="Italian Trulli" class="dock-icons">
             <div class="line"></div>
             <img src="images/App Store.ico" alt="Italian Trulli" class="dock-icons">
+            <img src="images/Terminal.ico" alt="Italian Trulli" class="dock-icons" onclick="showconsole()">
             <img src="images/Calendar.ico" alt="Italian Trulli" class="dock-icons">
             <img src="images/iTunes.ico" alt="Italian Trulli" class="dock-icons">
             <img src="images/Settings.ico" alt="Italian Trulli" class="dock-icons">
@@ -80,7 +81,6 @@
             <img src="images/YouTube.ico" alt="Italian Trulli" class="dock-icons">
             <img src="images/Whatsapp.ico" alt="Italian Trulli" class="dock-icons">
             <img src="images/Google Chrome.ico" alt="Italian Trulli" class="dock-icons">
-            <img src="images/Terminal.ico" alt="Italian Trulli" class="dock-icons" onclick="showconsole()">
             <img src="images/Activity Monitor.ico" alt="Italian Trulli" class="dock-icons">
             <div class="line"></div>
             <img src="images/Trashcan Full.ico" alt="Italian Trulli" class="dock-icons">
