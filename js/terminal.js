@@ -43,7 +43,7 @@ var password = "fkcodes";
 var linkedin = "https://www.linkedin.com/in/forrestpknight/";
 var instagram = "https://www.instagram.com/forrestpknight/";
 var github = "https://github.com/forrestknight/";
-var email = 'mailto:forrest@fkcodes.com';
+var email = 'mailto:vishveshchaudhari13@gmail.com';
 
 whois = [
   "<br>",
@@ -158,7 +158,7 @@ function enterKey(e) {
     if (e.keyCode == 13) {
       commands.push(command.innerHTML);
       git = commands.length;
-      addLine("visitor@fkcodes.com:~$ " + command.innerHTML, "no-animation", 0);
+      addLine("visitor@localhost:~$ " + command.innerHTML, "no-animation", 0);
       commander(command.innerHTML.toLowerCase());
       command.innerHTML = "";
       textarea.value = "";
@@ -220,7 +220,7 @@ function commander(cmd) {
       addLine("<br>", "command", 80 * commands.length + 50);
       break;
     case "email":
-      addLine('Opening mailto:<a href="mailto:forrest@fkcodes.com">forrest@fkcodes.com</a>...', "color2", 80);
+      addLine('Opening mailto:<a href="mailto:vishveshchaudhari13@gmail.com">vishveshchaudhari13@gmail.com</a>...', "color2", 80);
       newTab(email);
       break;
     case "clear":

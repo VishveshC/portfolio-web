@@ -64,7 +64,7 @@ body::-webkit-scrollbar {
   }
   #liner::before {
     color: #14271d;
-    content: "visitor@fkcodes.com:~$";
+    content: "visitor@localhost:~$";
   }
   #liner.password::before {
     content: "Password:";
