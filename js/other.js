@@ -236,7 +236,33 @@ function showconsole() {
     drag_div.style.display = "block";
     setTimeout(() => {  drag_div.style.opacity = "100"; }, 200);
 }
+function cpuutils(){
+    let cpuc = document.getElementById('cpucircle'); 
+    let ctext = document.getElementById('cputext');
+    const interval = setInterval(function() {
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        const rndInt = randomIntFromInterval(1, 100)
+        let fillul = 100 - rndInt;
+        let fill = rndInt + ' ' + fillul;
+        cpuc.setAttribute('stroke-dasharray', fill);
+        ctext.textContent = rndInt + "%";
+    }, 3000);
+}
+window.onload = cpuutils();
 
 window.onload = function() {
     checkbattery(), checktime(), drag(), terminaltext();
 };
+/*let cpu = document.getElementById("utilfill"); 
+    const interval = setInterval(function() {
+        // method to be executed;
+        function randomIntFromInterval(min, max) { // min and max included 
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+        const rndInt = randomIntFromInterval(5, 40)
+        console.log(rndInt)
+        let fill = rndInt + "px";
+        cpu.style.height = fill;
+    }, 2000);   */

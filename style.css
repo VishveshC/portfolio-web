@@ -329,7 +329,8 @@ html, body {
     color: white;
 }
 
-.util {
+/*.util {
+    overflow: hidden;
     display: flex;
     position: absolute;
     top: calc(25px + 15px);
@@ -342,3 +343,57 @@ html, body {
     -webkit-backdrop-filter: blur( 10px );
     background-color: rgba(0, 0, 0, 0.2);
 }
+.utilfill {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 1s;
+    background-color: rgb(0, 0, 0);
+    -webkit-animation: filler 1s ease-in-out;
+    -moz-animation: filler 1s ease-in-out;
+    animation: filler 1s ease-in-out;
+}
+*/
+@keyframes donut-chart-fill {
+    to { stroke-dasharray: 0 100; }
+}
+    .svg-item {
+        position: absolute;
+        top: 35px;
+        right: 15px;
+        width: 80px;
+        height: 80px;
+        font-size: 15px;
+    }
+    .donut-ring {
+        stroke: rgba(0, 0, 0, 0.247);
+    }
+    
+    .donut-segment {
+        animation: donut-chart-fill 1s reverse ease-in;
+        transform-origin: center;
+        stroke: #000000;
+        transition: 1.5s;
+    }
+    
+    .donut-text {
+        fill: #000000;
+    }
+    
+    .donut-label {
+        font-size: 0.28em;
+        line-height: 1;
+        fill: #000;
+        transform: translateY(0.25em);    
+    }
+    
+    .donut-percent {
+        font-size: 0.5em;
+        fill: #000000;
+        line-height: 1;
+        transform: translateY(0.5em);
+    }
