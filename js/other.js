@@ -222,7 +222,7 @@ function winx() {
 function winy() {
     let drag_div = document.getElementById("drag_div");
     if (drag_div.style.width === "50vw") {
-        drag_div.style.width = "calc(99vw - 20px)";
+        drag_div.style.width = "calc(99vw - 120px - 15px)";
         drag_div.style.height = "calc(99vh - 130px)";
 
     } else {
