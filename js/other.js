@@ -247,10 +247,37 @@ function cpuutils(){
         let fillul = 100 - rndInt;
         let fill = rndInt + ' ' + fillul;
         cpuc.setAttribute('stroke-dasharray', fill);
-        ctext.textContent = rndInt + "%";
+        ctext.textContent = rndInt + "%" + " CPU";
     }, 3000);
 }
-window.onload = cpuutils();
+function ramutils() {
+    
+    const interval = setInterval(function() {
+        let ram = window.performance.memory.usedJSHeapSize;
+        console.log(ram);
+        let ramf = formatBytes(ram);
+        console.log(ramf);
+        let ramfill = document.getElementById('ramfiller');
+        ramfill.style.height = (ramf*3) + "px";
+    }, 3000);
+}
+
+function formatBytes(bytes, decimals = 2) {
+    if (!+bytes) return '0 Bytes'
+
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}`
+}
+
+
+
+
+window.onload = cpuutils(), ramutils();
 
 window.onload = function() {
     checkbattery(), checktime(), drag(), terminaltext();
