@@ -243,7 +243,7 @@ function cpuutils(){
         function randomIntFromInterval(min, max) { // min and max included 
             return Math.floor(Math.random() * (max - min + 1) + min)
         }
-        const rndInt = randomIntFromInterval(1, 100)
+        const rndInt = randomIntFromInterval(10, 80)
         let fillul = 100 - rndInt;
         let fill = rndInt + ' ' + fillul;
         cpuc.setAttribute('stroke-dasharray', fill);

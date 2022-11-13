@@ -414,7 +414,7 @@ html, body {
     right: 15px;
     width: 35px;
     height: 80px;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
