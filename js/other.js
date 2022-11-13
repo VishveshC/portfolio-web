@@ -251,14 +251,16 @@ function cpuutils(){
     }, 3000);
 }
 function ramutils() {
-    
+    let ramfill = document.getElementById('ramfiller');
+    let ramtext = document.getElementById('ramtext');
     const interval = setInterval(function() {
         let ram = window.performance.memory.usedJSHeapSize;
-        console.log(ram);
         let ramf = formatBytes(ram);
-        console.log(ramf);
-        let ramfill = document.getElementById('ramfiller');
-        ramfill.style.height = (ramf*3) + "px";
+
+        let totalram = formatBytes(window.performance.memory.jsHeapSizeLimit);
+        let ramfillint = (ramf / totalram) * 10; 
+        ramfill.style.height = (ramfillint) + "%";
+        ramtext.textContent = Math.round(ramfillint) + "%";
     }, 3000);
 }
 
