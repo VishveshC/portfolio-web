@@ -83,7 +83,7 @@ html, body {
     margin: 5px;
     padding: 1px;
 }
-.icons, .icons-wifi{
+.icons, .icons-wifi, .eth{
     float: right;
     margin-top: 4px;
     margin-right: 13px;
@@ -95,6 +95,12 @@ html, body {
     margin-top: 3px !important;
     width: 17px !important;
     height: 17px !important;
+}
+.eth {
+    margin-right: 8px !important;
+    margin-top: 0px !important;
+    width: 24px !important;
+    height: 24px !important;
 }
 /* End of navbar */
 .iframe {
@@ -408,7 +414,7 @@ html, body {
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
 }
-.ramframe {
+.ramframe, .hot {
     position: absolute;
     top: 130px;
     right: 15px;
@@ -443,4 +449,13 @@ html, body {
 }
 .ramtext2 {
     padding-top: 0px !important;
+}
+.hot {
+    top: 130px;
+    right: 60px;
+}
+.temp {
+    position: absolute;
+    top: 7px;
+    left: -14.5px;
 }
