@@ -310,40 +310,10 @@ function temp() {
                 })
         })
         .catch(error => console.log('error', error));
-    /* End of fetch function */
-    
-    
-
-
-
-    
-    /*const xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=19.8762&lon=75.3433&appid=538e50ebb84a3b53bf8cad238468e71b`);
-    xhr.send();
-    xhr.onload = () =>{
-            // we can change the data type to json also by
-        const data = JSON.parse(xhr.response);
-        console.log(data);
-    };*/
 }
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 
 window.onload = cpuutils(), ramutils(), temp();
 
 window.onload = function() {
     checkbattery(), checktime(), drag(), terminaltext();
 };
-/*let cpu = document.getElementById("utilfill"); 
-    const interval = setInterval(function() {
-        // method to be executed;
-        function randomIntFromInterval(min, max) { // min and max included 
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
-        const rndInt = randomIntFromInterval(5, 40)
-        console.log(rndInt)
-        let fill = rndInt + "px";
-        cpu.style.height = fill;
-    }, 2000);   */
