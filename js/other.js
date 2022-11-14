@@ -266,20 +266,72 @@ function ramutils() {
 
 function formatBytes(bytes, decimals = 2) {
     if (!+bytes) return '0 Bytes'
-
     const k = 1024
     const dm = decimals < 0 ? 0 : decimals
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-
     const i = Math.floor(Math.log(bytes) / Math.log(k))
-
     return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}`
+}
+function temp() {
+    let tempfill = document.getElementById('tempfillpercent');
+    let temptext = document.getElementById('temptext');
+    const url = 'https://api.geoapify.com/v1/ipinfo?&apiKey=08f08b20444642ab87cb93ad545b1c5f';
+    var requestOptions = {
+        method: 'GET',
+    };
+    fetch(url, requestOptions)
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            let loc = data;
+            let lat = loc.location.latitude;
+            let lon = loc.location.longitude;
+            
+            const urz = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=538e50ebb84a3b53bf8cad238468e71b`;
+            var requestOptions = {
+                method: 'GET',
+            };
+            fetch(urz, requestOptions)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data2) => {
+                    let gg = data2;
+                    let tempf = Math.round(gg.main.temp);
+                    console.log(tempf);
+                    const interval = setInterval(function() {
+                        function randomIntFromInterval(min, max) { // min and max included 
+                            return Math.floor(Math.random() * (max - min + 1) + min)
+                        }
+                        tempfill.style.height = tempf + randomIntFromInterval(-5,5) + "%";
+                    }, 3000);
+                    temptext.textContent = tempf + "°C";
+                })
+        })
+        .catch(error => console.log('error', error));
+    /* End of fetch function */
+    
+    
+
+
+
+    
+    /*const xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=19.8762&lon=75.3433&appid=538e50ebb84a3b53bf8cad238468e71b`);
+    xhr.send();
+    xhr.onload = () =>{
+            // we can change the data type to json also by
+        const data = JSON.parse(xhr.response);
+        console.log(data);
+    };*/
+}
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 
-
-
-window.onload = cpuutils(), ramutils();
+window.onload = cpuutils(), ramutils(), temp();
 
 window.onload = function() {
     checkbattery(), checktime(), drag(), terminaltext();
