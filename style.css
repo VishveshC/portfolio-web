@@ -511,12 +511,11 @@ html, body {
     margin: 0px;
 }
 .timebar {
-    transition: 1s;
     position: absolute;
     width: 20px;
     height: 0%;
-    bottom: 15px;
-    left: 40px;
+    bottom: 0px;
+    left: 35px;
     background-color: black;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
@@ -526,9 +525,19 @@ html, body {
     position: absolute;
     width: 20px;
     height: 0%;
-    bottom: 15px;
-    left: 15px;
+    bottom: 0px;
+    left: 5px;
     background-color: black;
     border-top-left-radius: 7px;
     border-top-right-radius: 7px;
+}
+.linehor {
+    position: absolute;
+    width: 60px;
+    height: 110px;
+    border-left: rgba(0, 0, 0, 0.199) 1px solid;
+    border-bottom: rgba(0, 0, 0, 0.199) 1px solid;
+    bottom: 10px;
+    left: 9px;
+    overflow: hidden;
 }
