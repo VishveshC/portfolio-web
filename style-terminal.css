@@ -45,11 +45,6 @@ body::-webkit-scrollbar {
     text-decoration: blink;
     animation: blinker 1s linear infinite;
   }
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-  }
   #command {
     cursor: text;
     height: 50px;

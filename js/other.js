@@ -8,34 +8,28 @@ function drag(){
         down: "rgb(165, 255, 180)",
         bg: "rgb(255, 165, 165)"
     }
-
     // add hit-test functionality to DOMRect
     DOMRect.prototype.hit = function (x, y) {
         return x >= this.left && x <= this.right &&
             y >= this.top && y <= this.bottom;
     } 
-
     // yum
     function px(n) {
         return `${n}px`;
     }
-
     function init() {
         // HTML elements
         drag_div = document.getElementById("drag_div");
-        hit_div = document.getElementById("hit_div");
-        
+        hit_div = document.getElementById("hit_div"); 
         // listeners
         window.addEventListener("pointerdown", pointerDown);
         window.addEventListener("pointermove", pointerMove);
         window.addEventListener("pointerup", pointerUp);
         window.addEventListener("resize", resize);
-
         // init data
         dragging = false;
         offset = {x: 0, y: 0}
         win_rect = document.body.getBoundingClientRect();
-
         // position div to center
         let drag_rect = drag_div.getBoundingClientRect();
         let left = "15";
@@ -60,7 +54,6 @@ function drag(){
         }
     }
         
-
     function pointerMove(event) {
         let [x, y] = [event.clientX, event.clientY];
         let drag_rect = drag_div.getBoundingClientRect();
@@ -69,33 +62,27 @@ function drag(){
             let right = left + drag_rect.width;
             let top = y - offset.y;
             let bottom = top + drag_rect.height;
-            
             // prevent dragging off screen left/right
             if (left < 0) {
                 left = 0;
             } else if (right > win_rect.right) {
                 left = win_rect.right - drag_rect.width;
             }
-            
             // prevent dragging off screen top/bottom 
             if (top < 0) {
                 top = 0;
             } else if (bottom > win_rect.bottom) {
                 top = win_rect.bottom - drag_rect.height;
             }
-            
             drag_div.style.left = px(left);
             drag_div.style.top = px(top);
         }
     }
-
     function pointerUp(event) {
         dragging = false;
     }
-
     init();
 }
-
 function checkbattery() {
     let percentage = document.querySelector(' .percentage');
     let percent = document.querySelector('.percent');
@@ -159,6 +146,14 @@ function checktime(){
         setTimeout(getCurrentTimeDate, 30000);
     }
     getCurrentTimeDate();
+}
+function formatBytes(bytes, decimals = 2) {
+    if (!+bytes) return '0 Bytes'
+    const k = 1024
+    const dm = decimals < 0 ? 0 : decimals
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+    const i = Math.floor(Math.log(bytes) / Math.log(k))
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}`
 }
 function terminaltext(){
     // function([string1, string2],target id,[color1,color2])    
@@ -248,7 +243,7 @@ function cpuutils(){
         let fill = rndInt + ' ' + fillul;
         cpuc.setAttribute('stroke-dasharray', fill);
         ctext.textContent = rndInt + "%" + " CPU";
-    }, 3000);
+    }, 5000);
 }
 function ramutils() {
     let ramfill = document.getElementById('ramfiller');
@@ -261,17 +256,9 @@ function ramutils() {
         let ramfillint = (ramf / totalram) * 10; 
         ramfill.style.height = (ramfillint) + "%";
         ramtext.textContent = Math.round(ramfillint) + "%";
-    }, 3000);
+    }, 5000);
 }
 
-function formatBytes(bytes, decimals = 2) {
-    if (!+bytes) return '0 Bytes'
-    const k = 1024
-    const dm = decimals < 0 ? 0 : decimals
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}`
-}
 function temp() {
     let tempfill = document.getElementById('tempfillpercent');
     let temptext = document.getElementById('temptext');
@@ -299,21 +286,50 @@ function temp() {
                 .then((data2) => {
                     let gg = data2;
                     let tempf = Math.round(gg.main.temp);
-                    console.log(tempf);
                     const interval = setInterval(function() {
                         function randomIntFromInterval(min, max) { // min and max included 
                             return Math.floor(Math.random() * (max - min + 1) + min)
                         }
                         tempfill.style.height = tempf + randomIntFromInterval(-5,5) + "%";
-                    }, 3000);
+                    }, 5000);
                     temptext.textContent = tempf + "°C";
                 })
         })
         .catch(error => console.log('error', error));
 }
-
-window.onload = cpuutils(), ramutils(), temp();
-
-window.onload = function() {
-    checkbattery(), checktime(), drag(), terminaltext();
-};
+function timespent() {
+    let timetext = document.getElementById('timespent');
+    let timebar = document.getElementById('timebar');
+    const interval = setInterval(function() {
+        TimeMe.initialize({
+            currentPageName: "index.html", // current page
+            idleTimeoutInSeconds: 999999999 // seconds
+        });
+        TimeMe.getTimeOnCurrentPageInSeconds();
+        let timeround = Math.round(TimeMe.getTimeOnCurrentPageInSeconds());
+        if(timeround < 60) {
+            let place1 = "0" + "m";
+            let place2 = (timeround % 60)+ "s";
+            timetext.textContent = place1 + " " + place2;
+            window.localStorage.setItem("timespentbyuser", timeround);
+        };
+        if (timeround > 60) {
+            let place1 = Math.floor(timeround / 60) + "m";
+            let place2 = (timeround % 60) + "s";
+            timetext.textContent = place1 + " " + place2;
+            window.localStorage.setItem("timespentbyuser", timeround);
+        } else {
+        }
+        timebar.style.height = Math.floor(timeround / 5) + "%";
+    }, 5000);
+}
+function earlytimebar() {
+    let eartimebar = document.getElementById('earlytimebar');
+    let ttime = window.localStorage.getItem("timespentbyuser");
+    if (ttime <= 0) {
+        console.log("Error: local ttime is less than 0");
+    } else {
+        eartimebar.style.height = Math.floor(ttime / 5) + "%";
+    }
+}
+window.onload = cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
