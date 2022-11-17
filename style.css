@@ -3,6 +3,7 @@
 :root {
     --blue: #1e90ff;
     --white: whitesmoke;
+    --toggle: 1;
 }
 
 html, body {
@@ -140,7 +141,7 @@ html, body {
     width: 50px;
     height: 50px;
     margin: 10px;
-    transition: transform 0.3s;
+    transition: transform calc(var(--toggle) * .3s);
 }
 .dock-icons:hover {
     transform: scale(1.2);
@@ -159,7 +160,7 @@ html, body {
 
 
 .intro {
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.2s ease-out;
+    transition: width calc(var(--toggle) * .3s) ease, height calc(var(--toggle) * .3s) ease, opacity calc(var(--toggle) * .2s) ease-out;
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     font-family: 'Rubik', sans-serif;
@@ -383,7 +384,7 @@ html, body {
         animation: donut-chart-fill 1s reverse ease-in;
         transform-origin: center;
         stroke: #000000;
-        transition: 1s;
+        transition: calc(var(--toggle) * 1s);
     }
     
     .donut-text {
@@ -427,7 +428,7 @@ html, body {
     overflow: hidden;
 }
 .ramframefiller {
-    transition: 1s;
+    transition: calc(var(--toggle) * 1s);
     position: absolute;
     bottom: 0px;
     left: 0px;
@@ -470,7 +471,7 @@ html, body {
     border: solid 1px transparent;
 }
 .tempfillpercent {
-    transition: 1s;
+    transition: calc(var(--toggle) * 1s);
     position: absolute;
     bottom: 5px;
     left: -1px;
@@ -521,7 +522,7 @@ html, body {
     border-top-right-radius: 7px;
 }
 .earlytimebar {
-    transition: 1s;
+    transition: calc(var(--toggle) * 1s);
     position: absolute;
     width: 20px;
     height: 0%;
@@ -564,7 +565,7 @@ html, body {
     stroke: black;
     stroke-linejoin: round;
     stroke-width: 5;
-    transition: all 0.3s;
+    transition: all calc(var(--toggle) * 0.3s);
 }
 .play svg:hover {
     cursor: pointer;
@@ -584,9 +585,48 @@ html, body {
 .play2 svg {
     padding: 5px;
     align-items: center;
-    transition: all 0.3s;
+    transition: all calc(var(--toggle) * 0.3s);
 }
 .play2 svg:hover {
     cursor: pointer;
     transform: scale(1.2, 1.2);
+}
+.toggle {
+    padding-right: 8px !important;
+    padding: 2px;
+    float: right;
+    position: relative;
+    box-sizing: border-box;
+}
+.toggle input[type="checkbox"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+.toggle label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+.toggle label:before {
+    content: '';
+    width: 30px;
+    height: 18px;
+    background: #fff;
+    border: 1px solid #DDD;
+    box-shadow: inset -13px 0 0 #333;
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: calc(var(--toggle) * 0.25s) ease-in-out;
+}
+.toggle input[type="checkbox"]:checked + label:before {
+    box-shadow: inset 13px 0 0 green;
 }

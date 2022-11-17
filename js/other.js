@@ -332,4 +332,25 @@ function earlytimebar() {
         eartimebar.style.height = Math.floor(ttime / 5) + "%";
     }
 }
-window.onload = cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
+function lite() {
+    let box = document.getElementById('toggle-animations');
+    if (box.checked === true) {
+        window.localStorage.setItem("litemode", 0);
+        document.body.style.setProperty("--toggle", "0");
+    } else {
+        window.localStorage.setItem("litemode", 1);
+        document.body.style.setProperty("--toggle", "1");
+    }
+}
+function litecheck() {
+    let tog = window.localStorage.getItem("litemode");
+    let boxo = document.getElementById('toggle-animations');
+    if ( tog == 0) {
+        document.body.style.setProperty("--toggle", "0");
+        boxo.checked = true;
+    } else {
+        document.body.style.setProperty("--toggle", "1");
+        boxo.checked = false;
+    }
+}
+window.onload = litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
