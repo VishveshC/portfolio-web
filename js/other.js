@@ -355,16 +355,41 @@ function litecheck() {
 function playfun() {
     let play = document.getElementById('playbut');
     let pause = document.getElementById('pausebut');
+    let track = document.getElementById('track');
     if (play.style.display === "none") {
         pause.style.display = "none";
         play.style.display = "block";
+        track.pause();
     } else {
         pause.style.display = "block";
         play.style.display = "none";
+        track.play();
     }
 }
+function music() {
+    let musicpanel = document.getElementById('music');
+    let track = document.getElementById('track');
+    let album = new Array(
+        "images/ninethou.png",
+        "images/tuyo.png",
+        "images/shootout.png",
+        "images/deepend.png",
+        "images/callme.png",
+        "images/cipher.png"
+    );
+    let num = Math.floor(Math.random() * (album.length));
+    musicpanel.style.backgroundImage = "url('" + album[num] + "')";
 
+    let musicurl = new Array(
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/nine_thou.mp3?alt=media&token=bef04010-e44f-4749-9cbd-8ba46fd704b3",
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/tuyo.mp3?alt=media&token=b786efb5-5408-4440-a8d6-c42d8cf0a9c6",
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/shootout.mp3?alt=media&token=e6962b61-8502-478d-a258-d841906b0e96",
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/deep_end.mp3?alt=media&token=0bf96f9f-fef6-49ed-9564-41e18ac2de76",
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/call_me.mp3?alt=media&token=986c342d-6337-46b3-b4c2-c799d12d72e9",
+        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/cipher.mp3?alt=media&token=7e3d5e92-7c4f-42bc-a416-25d7b56fc4dc",
+    );
+    track.setAttribute("src",musicurl[num]);
+    track.volume = 0.1;
+}
 
-
-
-window.onload = litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
+window.onload = music(), litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();

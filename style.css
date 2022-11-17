@@ -549,7 +549,9 @@ html, body {
     width: 80px;
     height: 80px;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 .play {
     position: absolute;
@@ -558,7 +560,7 @@ html, body {
     width: 30px;
     height: 30px;
     border-radius: 25%;
-    background-color: rgba(0, 0, 0, 0.281);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .playbut{
     padding: 4px;
@@ -584,7 +586,7 @@ html, body {
     width: 30px;
     height: 30px;
     border-radius: 25%;
-    background-color: rgba(0, 0, 0, 0.281);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .play2 svg {
     padding: 5px;
