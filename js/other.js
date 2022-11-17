@@ -367,6 +367,10 @@ function playfun() {
     }
 }
 function music() {
+    let play = document.getElementById('playbut');
+    let pause = document.getElementById('pausebut');
+    pause.style.display = "none";
+    play.style.display = "block";
     let musicpanel = document.getElementById('music');
     let track = document.getElementById('track');
     let album = new Array(

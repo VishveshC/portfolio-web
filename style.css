@@ -19,6 +19,7 @@ html, body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    user-select: none;
 }
 .navbar {
     overflow: hidden;
