@@ -1,8 +1,6 @@
 Make a immersive mode button/toggle
-Make a lite mode button/toggle
 Make a dark-light mode
 Make a mobile version
 Add app functions for dock
 Add about me
 Make a music player widget
-Optimize js and GPU 3D usage (50% GPU?)

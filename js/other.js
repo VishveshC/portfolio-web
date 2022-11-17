@@ -212,7 +212,6 @@ function winx() {
     let drag_div = document.getElementById("drag_div");
     drag_div.style.opacity = "0";
     setTimeout(() => {  drag_div.style.display = "none"; }, 200);
-    
 }
 function winy() {
     let drag_div = document.getElementById("drag_div");
@@ -353,4 +352,19 @@ function litecheck() {
         boxo.checked = false;
     }
 }
+function playfun() {
+    let play = document.getElementById('playbut');
+    let pause = document.getElementById('pausebut');
+    if (play.style.display === "none") {
+        pause.style.display = "none";
+        play.style.display = "block";
+    } else {
+        pause.style.display = "block";
+        play.style.display = "none";
+    }
+}
+
+
+
+
 window.onload = litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
