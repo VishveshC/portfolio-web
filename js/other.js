@@ -373,7 +373,32 @@ function music() {
     play.style.display = "block";
     let musicpanel = document.getElementById('music');
     let track = document.getElementById('track');
-    let album = new Array(
+    
+    let playlist = new Array(
+        "Nine Thou",
+        "Tuyo",
+        "Shootout",
+        "Call Me",
+        "Cipher",
+        "Dream On",
+        "Ladyfingers",
+        "Fitzpleasure",
+        "Do Ya Thing",
+        "Hot",
+        "Fired Up",
+        "Fragile Melodies",
+        "My Hood",
+        "Aces",
+        "West Coast Love"
+    )
+    let num = Math.floor(Math.random() * (playlist.length));
+    let nameformat = playlist[num].toLowerCase().replace(/ /g, '_');
+    let url = `https://storage.googleapis.com/portfolio-696969.appspot.com/${nameformat}.mp3`;
+
+    track.setAttribute("src", url);
+    track.volume = 0.1;
+    
+    /*let album = new Array(
         "images/ninethou.png",
         "images/tuyo.png",
         "images/shootout.png",
@@ -381,7 +406,7 @@ function music() {
         "images/callme.png",
         "images/cipher.png"
     );
-    let num = Math.floor(Math.random() * (album.length));
+    
     musicpanel.style.backgroundImage = "url('" + album[num] + "')";
 
     let musicurl = new Array(
@@ -392,8 +417,8 @@ function music() {
         "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/call_me.mp3?alt=media&token=79a77a75-8669-4d15-84f3-5ff9bca22ee4",
         "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/cipher.mp3?alt=media&token=7e3d5e92-7c4f-42bc-a416-25d7b56fc4dc",
     );
-    //track.setAttribute("src",musicurl[num]);
-    
+    track.setAttribute("src",musicurl[num]);
+    */
 }
 
 window.onload = music(), litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
