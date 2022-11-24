@@ -239,7 +239,7 @@ function timespent() {
     setInterval(function() {
         TimeMe.initialize({
             currentPageName: "index.html", // current page
-            idleTimeoutInSeconds: 999999999 // seconds
+            idleTimeoutInSeconds: "-1" // seconds
         });
         TimeMe.getTimeOnCurrentPageInSeconds();
         let timeround = Math.round(TimeMe.getTimeOnCurrentPageInSeconds());
@@ -254,8 +254,7 @@ function timespent() {
             let place2 = (timeround % 60) + "s";
             timetext.textContent = place1 + " " + place2;
             window.localStorage.setItem("timespentbyuser", timeround);
-        } else {
-        }
+        } else {};
         timebar.style.height = Math.floor(timeround / 5) + "%";
     }, anitime);
 }

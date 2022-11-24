@@ -3,4 +3,3 @@ Make a dark-light mode
 Make a mobile version
 Add app functions for dock
 Add about me
-Make a music player widget
