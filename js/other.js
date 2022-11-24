@@ -1,48 +1,39 @@
+var drag_div = document.getElementById("drag_div");
+var anitime = "5000";
+function randomIntFromInterval(min, max) { 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
 function drag(){
     let drag_div, hit_div;
-    let win_rect; // window client area
+    let win_rect;
     let dragging;
     let offset;
-    let colors = {
-        up: "rgb(255, 254, 165)",
-        down: "rgb(165, 255, 180)",
-        bg: "rgb(255, 165, 165)"
-    }
-    // add hit-test functionality to DOMRect
     DOMRect.prototype.hit = function (x, y) {
         return x >= this.left && x <= this.right &&
             y >= this.top && y <= this.bottom;
     } 
-    // yum
     function px(n) {
         return `${n}px`;
     }
     function init() {
-        // HTML elements
         drag_div = document.getElementById("drag_div");
         hit_div = document.getElementById("hit_div"); 
-        // listeners
         window.addEventListener("pointerdown", pointerDown);
         window.addEventListener("pointermove", pointerMove);
         window.addEventListener("pointerup", pointerUp);
         window.addEventListener("resize", resize);
-        // init data
         dragging = false;
         offset = {x: 0, y: 0}
         win_rect = document.body.getBoundingClientRect();
-        // position div to center
         let drag_rect = drag_div.getBoundingClientRect();
         let left = "15";
         let top = "40";
         drag_div.style.left = px(left);
         drag_div.style.top = px(top);
     }
-
     function resize(event) {
-        // keep track of changed client area dimensions 
         win_rect = document.body.getBoundingClientRect();
     }
-
     function pointerDown (event) {
         let [x, y] = [event.clientX, event.clientY];
         let drag_rect = drag_div.getBoundingClientRect();
@@ -52,8 +43,7 @@ function drag(){
             offset.x = x - drag_rect.x;
             offset.y = y - drag_rect.y;
         }
-    }
-        
+    }   
     function pointerMove(event) {
         let [x, y] = [event.clientX, event.clientY];
         let drag_rect = drag_div.getBoundingClientRect();
@@ -84,8 +74,8 @@ function drag(){
     init();
 }
 function checkbattery() {
-    let percentage = document.querySelector(' .percentage');
-    let percent = document.querySelector('.percent');
+    const percentage = document.querySelector('.percentage');
+    const percent = document.querySelector('.percent');
     navigator.getBattery().then(function(battery){
     percentage.style.width = battery.level * 100+ '%';
     percent.innerHTML = battery.level * 100;
@@ -94,82 +84,45 @@ function checkbattery() {
 function checktime(){
     const getCurrentTimeDate = () => {
         let currentTimeDate = new Date();
-    
-        var weekday = new Array(7);
-        weekday[0] = "Sun";
-        weekday[1] = "Mon";
-        weekday[2] = "Tue";
-        weekday[3] = "Wed";
-        weekday[4] = "Thu";
-        weekday[5] = "Fri";
-        weekday[6] = "Sat";
-    
-        var month = new Array();
-        month[0] = "Jan";
-        month[1] = "Feb";
-        month[2] = "Mar";
-        month[3] = "Apr";
-        month[4] = "May";
-        month[5] = "Jun";
-        month[6] = "Jul";
-        month[7] = "Aug";
-        month[8] = "Sep";
-        month[9] = "Oct";
-        month[10] = "Nov";
-        month[11] = "Dec";
-    
+        var weekday = new Array(
+        "Sun","Mon","Tue","Wed","Thu","Fri","Sat")
+        var month = new Array(
+        "Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec")
         var hours   =  currentTimeDate.getHours();
-    
         var minutes =  currentTimeDate.getMinutes();
-        minutes = minutes < 10 ? '0'+minutes : minutes;
+        minutes = minutes < 10 ? '0'+ minutes : minutes;
         var AMPM = hours >= 12 ? 'PM' : 'AM';
-
         if(hours === 12){
-            hours=12;
-        }else{
-            hours = hours%12;
+            hours = 12;
+        } else {
+            hours = hours % 12;
         }
-    
         var currentTime = `${hours}:${minutes} ${AMPM}`;
         var currentDay = weekday[currentTimeDate.getDay()];
-    
         var currentDate  = currentTimeDate.getDate();
         var currentMonth = month[currentTimeDate.getMonth()];
-    
         var fullDate = `${currentDate} ${currentMonth}`;
-    
-    
         document.getElementById("time").innerHTML = currentTime;
         document.getElementById("day").innerHTML = currentDay;
         document.getElementById("date").innerHTML = fullDate;
-    
         setTimeout(getCurrentTimeDate, 30000);
     }
     getCurrentTimeDate();
 }
-function formatBytes(bytes, decimals = 2) {
-    if (!+bytes) return '0 Bytes'
-    const k = 1024
-    const dm = decimals < 0 ? 0 : decimals
-    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))}`
-}
+function formatBytes(bytes,decimals=2){if(!+bytes)return"0 Bytes";const dm=decimals<0?0:decimals,i=Math.floor(Math.log(bytes)/Math.log(1024));return`${parseFloat((bytes/Math.pow(1024,i)).toFixed(dm))}`}
 function terminaltext(){
     // function([string1, string2],target id,[color1,color2])    
     consoleText(['Hello!', 'This is Vishvesh C.'], 'text',['black','black']);
-
     function consoleText(words, id, colors) {
     if (colors === undefined) colors = ['#fff'];
     var visible = true;
-    var con = document.getElementById('console');
+    const con = document.getElementById('console');
     var letterCount = 1;
     var x = 1;
     var waiting = false;
     var target = document.getElementById(id)
     target.setAttribute('style', 'color:' + colors[0])
     window.setInterval(function() {
-    
         if (letterCount === 0 && waiting === false) {
         waiting = true;
         target.innerHTML = words[0].substring(0, letterCount)
@@ -199,68 +152,56 @@ function terminaltext(){
         if (visible === true) {
         con.className = 'console-underscore hidden'
         visible = false;
-    
         } else {
         con.className = 'console-underscore'
-    
         visible = true;
         }
     }, 400)
     }
 }
 function winx() {
-    let drag_div = document.getElementById("drag_div");
     drag_div.style.opacity = "0";
     setTimeout(() => {  drag_div.style.display = "none"; }, 200);
 }
 function winy() {
-    let drag_div = document.getElementById("drag_div");
     if (drag_div.style.width === "50vw") {
         drag_div.style.width = "calc(99vw - 120px - 15px)";
         drag_div.style.height = "calc(99vh - 130px)";
-
     } else {
         drag_div.style.width = "50vw";
         drag_div.style.height = "50vh";
-
     }
 }
 function showconsole() {
-    let drag_div = document.getElementById("drag_div");
     drag_div.style.display = "block";
     setTimeout(() => {  drag_div.style.opacity = "100"; }, 200);
 }
 function cpuutils(){
-    let cpuc = document.getElementById('cpucircle'); 
-    let ctext = document.getElementById('cputext');
-    const interval = setInterval(function() {
-        function randomIntFromInterval(min, max) { // min and max included 
-            return Math.floor(Math.random() * (max - min + 1) + min)
-        }
+    const cpuc = document.getElementById('cpucircle'); 
+    const ctext = document.getElementById('cputext');
+    setInterval(function() {
         const rndInt = randomIntFromInterval(10, 80)
         let fillul = 100 - rndInt;
         let fill = rndInt + ' ' + fillul;
         cpuc.setAttribute('stroke-dasharray', fill);
         ctext.textContent = rndInt + "%" + " CPU";
-    }, 5000);
+    }, anitime);
 }
 function ramutils() {
-    let ramfill = document.getElementById('ramfiller');
-    let ramtext = document.getElementById('ramtext');
-    const interval = setInterval(function() {
+    const ramfill = document.getElementById('ramfiller');
+    const ramtext = document.getElementById('ramtext');
+    setInterval(function() {
         let ram = window.performance.memory.usedJSHeapSize;
         let ramf = formatBytes(ram);
-
         let totalram = formatBytes(window.performance.memory.jsHeapSizeLimit);
         let ramfillint = (ramf / totalram) * 10; 
         ramfill.style.height = (ramfillint) + "%";
         ramtext.textContent = Math.round(ramfillint) + "%";
-    }, 5000);
+    }, anitime);
 }
-
 function temp() {
-    let tempfill = document.getElementById('tempfillpercent');
-    let temptext = document.getElementById('temptext');
+    const tempfill = document.getElementById('tempfillpercent');
+    const temptext = document.getElementById('temptext');
     const url = 'https://api.geoapify.com/v1/ipinfo?&apiKey=08f08b20444642ab87cb93ad545b1c5f';
     var requestOptions = {
         method: 'GET',
@@ -273,7 +214,6 @@ function temp() {
             let loc = data;
             let lat = loc.location.latitude;
             let lon = loc.location.longitude;
-            
             const urz = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=538e50ebb84a3b53bf8cad238468e71b`;
             var requestOptions = {
                 method: 'GET',
@@ -285,21 +225,18 @@ function temp() {
                 .then((data2) => {
                     let gg = data2;
                     let tempf = Math.round(gg.main.temp);
-                    const interval = setInterval(function() {
-                        function randomIntFromInterval(min, max) { // min and max included 
-                            return Math.floor(Math.random() * (max - min + 1) + min)
-                        }
+                    setInterval(function() {
                         tempfill.style.height = tempf + randomIntFromInterval(-5,5) + "%";
-                    }, 5000);
+                    }, anitime);
                     temptext.textContent = tempf + "°C";
                 })
         })
         .catch(error => console.log('error', error));
 }
 function timespent() {
-    let timetext = document.getElementById('timespent');
-    let timebar = document.getElementById('timebar');
-    const interval = setInterval(function() {
+    const timetext = document.getElementById('timespent');
+    const timebar = document.getElementById('timebar');
+    setInterval(function() {
         TimeMe.initialize({
             currentPageName: "index.html", // current page
             idleTimeoutInSeconds: 999999999 // seconds
@@ -320,10 +257,10 @@ function timespent() {
         } else {
         }
         timebar.style.height = Math.floor(timeround / 5) + "%";
-    }, 5000);
+    }, anitime);
 }
 function earlytimebar() {
-    let eartimebar = document.getElementById('earlytimebar');
+    const eartimebar = document.getElementById('earlytimebar');
     let ttime = window.localStorage.getItem("timespentbyuser");
     if (ttime <= 0) {
         console.log("Error: local ttime is less than 0");
@@ -332,7 +269,7 @@ function earlytimebar() {
     }
 }
 function lite() {
-    let box = document.getElementById('toggle-animations');
+    const box = document.getElementById('toggle-animations');
     if (box.checked === true) {
         window.localStorage.setItem("litemode", 0);
         document.body.style.setProperty("--toggle", "0");
@@ -343,7 +280,7 @@ function lite() {
 }
 function litecheck() {
     let tog = window.localStorage.getItem("litemode");
-    let boxo = document.getElementById('toggle-animations');
+    const boxo = document.getElementById('toggle-animations');
     if ( tog == 0) {
         document.body.style.setProperty("--toggle", "0");
         boxo.checked = true;
@@ -353,9 +290,9 @@ function litecheck() {
     }
 }
 function playfun() {
-    let play = document.getElementById('playbut');
-    let pause = document.getElementById('pausebut');
-    let track = document.getElementById('track');
+    const play = document.getElementById('playbut');
+    const pause = document.getElementById('pausebut');
+    const track = document.getElementById('track');
     if (play.style.display === "none") {
         pause.style.display = "none";
         play.style.display = "block";
@@ -367,13 +304,12 @@ function playfun() {
     }
 }
 function music() {
-    let play = document.getElementById('playbut');
-    let pause = document.getElementById('pausebut');
+    const play = document.getElementById('playbut');
+    const pause = document.getElementById('pausebut');
+    const musicpanel = document.getElementById('music');
+    const track = document.getElementById('track');
     pause.style.display = "none";
     play.style.display = "block";
-    let musicpanel = document.getElementById('music');
-    let track = document.getElementById('track');
-    
     let playlist = new Array(
         "Nine Thou",
         "Tuyo",
@@ -393,32 +329,12 @@ function music() {
     )
     let num = Math.floor(Math.random() * (playlist.length));
     let nameformat = playlist[num].toLowerCase().replace(/ /g, '_');
-    let url = `https://storage.googleapis.com/portfolio-696969.appspot.com/${nameformat}.mp3`;
-
-    track.setAttribute("src", url);
+    let musicurl = `https://storage.googleapis.com/portfolio-696969.appspot.com/audio/${nameformat}.mp3`;
+    let albumurl = `https://storage.googleapis.com/portfolio-696969.appspot.com/images/${nameformat}.png`;
+    track.setAttribute("src", musicurl);
     track.volume = 0.1;
-    
-    /*let album = new Array(
-        "images/ninethou.png",
-        "images/tuyo.png",
-        "images/shootout.png",
-        "images/deepend.png",
-        "images/callme.png",
-        "images/cipher.png"
-    );
-    
-    musicpanel.style.backgroundImage = "url('" + album[num] + "')";
-
-    let musicurl = new Array(
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/nine_thou.mp3?alt=media&token=bef04010-e44f-4749-9cbd-8ba46fd704b3",
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/tuyo.mp3?alt=media&token=b786efb5-5408-4440-a8d6-c42d8cf0a9c6",
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/shootout.mp3?alt=media&token=e6962b61-8502-478d-a258-d841906b0e96",
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/deep_end.mp3?alt=media&token=0bf96f9f-fef6-49ed-9564-41e18ac2de76",
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/call_me.mp3?alt=media&token=79a77a75-8669-4d15-84f3-5ff9bca22ee4",
-        "https://firebasestorage.googleapis.com/v0/b/portfolio-696969.appspot.com/o/cipher.mp3?alt=media&token=7e3d5e92-7c4f-42bc-a416-25d7b56fc4dc",
-    );
-    track.setAttribute("src",musicurl[num]);
-    */
+    musicpanel.style.backgroundImage = `url(${albumurl})`;
 }
+
 
 window.onload = music(), litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();

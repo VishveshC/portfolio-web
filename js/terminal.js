@@ -1,19 +1,15 @@
 function $(elid) {
     return document.getElementById(elid);
-  }
-  
+}
 var cursor;
 window.onload = init;
-
 function init() {
   cursor = $("cursor");
   cursor.style.left = "0px";
 }
-
 function nl2br(txt) {
   return txt.replace(/\n/g, '');
 }
-
 function typeIt(from, e) {
   e = e || window.event;
   var w = $("typer");
@@ -22,7 +18,6 @@ function typeIt(from, e) {
     w.innerHTML = nl2br(tw);
   }
 }
-
 function moveIt(count, e) {
   e = e || window.event;
   var keycode = e.keyCode || e.which;
@@ -32,57 +27,49 @@ function moveIt(count, e) {
     cursor.style.left = parseInt(cursor.style.left) + 10 + "px";
   }
 }
-
 function alert(txt) {
   console.log(txt);
 }
-
-var youtube = "https://www.youtube.com/fknight/";
-var twitter = "https://www.twitter.com/forrestpknight/";
-var password = "fkcodes";
-var linkedin = "https://www.linkedin.com/in/forrestpknight/";
-var instagram = "https://www.instagram.com/forrestpknight/";
-var github = "https://github.com/forrestknight/";
+var youtube = "https://www.youtube.com/channel/UCSsyUSWfEHtg0TyWMR4EloA";
+var twitter = "https://www.twitter.com/";
+var password = "sussybaka";
+var linkedin = "https://www.linkedin.com/in/";
+var instagram = "https://www.instagram.com/fs.msi/";
+var github = "https://github.com/VishveshC/";
 var email = 'mailto:vishveshchaudhari13@gmail.com';
-
 whois = [
   "<br>",
   "Hey, I'm Vishvesh!👋",
   "Currently working on this... ;-;",
   "<br>"
 ];
-
 whoami = [
   "<br>",
   "The paradox of “Who am I?” is: we never know, but, we constantly find out.",
   "<br>"
 ];
-
 social = [
   "<br>",
-  'youtube        <a href="' + youtube + '" target="_blank">youtube/fknight' + "</a>",
-  'twitter        <a href="' + twitter + '" target="_blank">twitter/forrestpknight' + '</a>',
-  'linkedin       <a href="' + linkedin + '" target="_blank">linkedin/forrestpknight' + "</a>",
-  'instagram      <a href="' + instagram + '" target="_blank">instagram/forrestpknight' + '</a>',
-  'github         <a href="' + github + '" target="_blank">github/forrestknight' + "</a>",
+  'youtube        <a href="' + youtube + '" target="_blank">youtube/Vishvesh' + "</a>",
+  'twitter        <a href="' + twitter + '" target="_blank">twitter/;-;' + '</a>',
+  'linkedin       <a href="' + linkedin + '" target="_blank">linkedin/;-;' + "</a>",
+  'instagram      <a href="' + instagram + '" target="_blank">instagram/fs.msi' + '</a>',
+  'github         <a href="' + github + '" target="_blank">github/VishveshC' + "</a>",
   "<br>"
 ];
-
 secret = [
   "<br>",
   '<span class="command">sudo</span>           Only use if you\'re admin',
   "<br>"
 ];
-
 projects = [
   "<br>",
   "Still curating... most projects are offline, on GitHub, or confidential.",
   "<br>"
 ];
-
 help = [
   "<br>",
-  '<span class="command">whois</span>          Who is Forrest?',
+  '<span class="command">whois</span>          Who is Vishvesh?',
   '<span class="command">whoami</span>         Who are you?',
   '<span class="command">video</span>          View YouTube videos',
   '<span class="command">social</span>         Display social networks',
@@ -95,7 +82,6 @@ help = [
   '<span class="command">banner</span>         Display the header',
   "<br>",
 ];
-
 banner = [
   '<span class="index">VishveshChaudhari (VC) Not A Corporation. All knights reserved.</span>',
   '<span class="color2">Welcome to my interactive web terminal.</span>',
@@ -106,29 +92,23 @@ var liner = document.getElementById("liner");
 var command = document.getElementById("typer"); 
 var textarea = document.getElementById("texter"); 
 var terminal = document.getElementById("terminal");
-
 var git = 0;
 var pw = false;
 let pwd = false;
 var commands = [];
-
 setTimeout(function() {
   loopLines(banner, "", 80);
   textarea.focus();
 }, 100);
-
 window.addEventListener("keyup", enterKey);
-
 console.log(
   "%cYou hacked my password!😠",
-  "color: #04ff00; font-weight: bold; font-size: 24px;"
+  "color: #04ff00; font-weight: bold; font-size: 15px;"
 );
 console.log("%cPassword: '" + password + "' - I wonder what it does?🤔", "color: grey");
-
 //init
 textarea.value = "";
 command.innerHTML = textarea.value;
-
 function enterKey(e) {
   if (e.keyCode == 181) {
     document.location.reload(true);
@@ -179,7 +159,6 @@ function enterKey(e) {
     }
   }
 }
-
 function commander(cmd) {
   switch (cmd.toLowerCase()) {
     case "help":
@@ -258,13 +237,11 @@ function commander(cmd) {
       break;
   }
 }
-
 function newTab(link) {
   setTimeout(function() {
     window.open(link, "_blank");
   }, 500);
 }
-
 function addLine(text, style, time) {
   var t = "";
   for (let i = 0; i < text.length; i++) {
@@ -285,7 +262,6 @@ function addLine(text, style, time) {
     window.scrollTo(0, document.body.offsetHeight);
   }, time);
 }
-
 function loopLines(name, style, time) {
   name.forEach(function(item, index) {
     addLine(item, style, index * time);
