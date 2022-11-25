@@ -1,20 +1,19 @@
-/* font-family: 'Rubik', sans-serif; */
-/* font-family: 'League Spartan', sans-serif; */
+/* font-family: 'Rubik', sans-serif;
+ */
+/* font-family: 'League Spartan', sans-serif;
+ */
 :root {
-    --blue: #1e90ff;
-    --white: whitesmoke;
     --toggle: 1;
 }
-
 html, body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: "League Spartan", sans-serif;
     font-size: medium;
-    background: url(bg/mac-bg.jpg) no-repeat center center fixed #000; 
+    background: url(bg/mac-bg.jpg) no-repeat center center fixed #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,7 +22,7 @@ html, body {
 }
 .navbar {
     overflow: hidden;
-    color: var(--white);
+    color: #fff;
     font-weight: 400;
     width: 100%;
     height: 25px;
@@ -50,15 +49,15 @@ html, body {
 }
 .navwrapper ul li a{
     display: block;
-    color: var(--white);
+    color: #fff;
     text-align: center;
     text-decoration: none;
     padding: 5px;
     -webkit-transition: color 0.5s;
-    -moz-transition:    color 0.5s;
-    -ms-transition:     color 0.5s;
-    -o-transition:      color 0.5s;
-    transition:         color 0.5s;
+    -moz-transition: color 0.5s;
+    -ms-transition: color 0.5s;
+    -o-transition: color 0.5s;
+    transition: color 0.5s;
 }
 .navwrapper ul li a:hover:not(.active){
     color: grey;
@@ -78,7 +77,7 @@ html, body {
     display: flex;
     position: relative;
     float: right;
-    right: 0px;
+    right: 0;
 }
 .time p{
     display: inline;
@@ -91,7 +90,7 @@ html, body {
     margin-right: 13px;
     width: 15px;
     height: 15px;
-    fill: var(--white);
+    fill: #fff;
 }
 .icons-wifi {
     margin-top: 3px !important;
@@ -100,7 +99,7 @@ html, body {
 }
 .eth {
     margin-right: 8px !important;
-    margin-top: 0px !important;
+    margin-top: 0 !important;
     width: 24px !important;
     height: 24px !important;
 }
@@ -120,17 +119,18 @@ html, body {
     overflow: hidden;
     height: 70px;
     left: 50%;
-    bottom: 0px;
+    bottom: 0;
     transform: translate(-50%, -15%);
     margin: 0 auto;
-    /*border: 1px solid black;*/
+   /*border: 1px solid black;
+   */
     border-radius: 20px;
     background: rgba( 0, 0, 0, 0.4 );
     backdrop-filter: blur( 20px );
     -webkit-backdrop-filter: blur( 20px );
-    -webkit-box-shadow: 0px 0px 37px 3px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0px 0px 37px 3px rgba(0,0,0,0.6);
-    box-shadow: 0px 0px 37px 3px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0px 37px 3px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0px 37px 3px rgba(0,0,0,0.6);
+    box-shadow: 0 0px 37px 3px rgba(0,0,0,0.6);
 }
 .dock-icons {
     position: relative;
@@ -143,13 +143,13 @@ html, body {
     transform: scale(1.2);
 }
 .line {
-    margin-right: 0px !important;
-    margin-left: 0px !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
     margin: 10px;
     position: relative;
     height: 50px;
     width: 1px;
-    border-radius: 1px; 
+    border-radius: 1px;
     background-color: black;
 }
 .intro {
@@ -168,7 +168,7 @@ html, body {
 }
 .introheader {
     overflow-x: hidden;
-    left: 0px;
+    left: 0;
     position: relative;
     width: 100%;
     height: 45px;
@@ -180,8 +180,8 @@ html, body {
 }
 .introheader ul {
     margin-right: 200px !important;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     height: fit-content;
     width: 100%;
     list-style: none;
@@ -197,10 +197,10 @@ html, body {
     border-radius: 5px;
     padding: 4px;
     -webkit-transition: background-color 0.5s;
-    -moz-transition:    background-color 0.5s;
-    -ms-transition:     background-color 0.5s;
-    -o-transition:      background-color 0.5s;
-    transition:         background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+    -ms-transition: background-color 0.5s;
+    -o-transition: background-color 0.5s;
+    transition: background-color 0.5s;
 }
 .introheader ul li:hover {
     background-color: rgba(0, 0, 0, 0.425);
@@ -219,14 +219,12 @@ html, body {
 .introheader ul li:first-child:hover {
     background-color: rgba(0, 0, 0, 0) !important;
 }
-
-
 .x {
     -webkit-transition: background-color 0.3s;
-    -moz-transition:    background-color 0.3s;
-    -ms-transition:     background-color 0.3s;
-    -o-transition:      background-color 0.3s;
-    transition:         background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -238,10 +236,10 @@ html, body {
 }
 .y {
     -webkit-transition: background-color 0.3s;
-    -moz-transition:    background-color 0.3s;
-    -ms-transition:     background-color 0.3s;
-    -o-transition:      background-color 0.3s;
-    transition:         background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -253,10 +251,10 @@ html, body {
 }
 .z {
     -webkit-transition: background-color 0.3s;
-    -moz-transition:    background-color 0.3s;
-    -ms-transition:     background-color 0.3s;
-    -o-transition:      background-color 0.3s;
-    transition:         background-color 0.3s;
+    -moz-transition: background-color 0.3s;
+    -ms-transition: background-color 0.3s;
+    -o-transition: background-color 0.3s;
+    transition: background-color 0.3s;
     width: 15px;
     height: 15px;
     border-radius: 50%;
@@ -266,15 +264,6 @@ html, body {
 .z:hover {
     background-color:rgb(179, 163, 132);
 }
-
-
-
-
-
-
-
-
-
 /* Battery stuff */
 .content-battery {
     position: relative;
@@ -304,10 +293,10 @@ html, body {
 }
 .level {
     position : absolute ;
-    top : 0px ;
-    Left : 0px ;
-    right : 0px ;
-    bottom : 0px ;
+    top : 0 ;
+    Left : 0 ;
+    right : 0 ;
+    bottom : 0 ;
     background : #333 ;
     border-radius : 1px ;
 }
@@ -327,75 +316,43 @@ html, body {
     font-size: 12px;
     color: white;
 }
-
-/*.util {
-    overflow: hidden;
-    display: flex;
-    position: absolute;
-    top: calc(25px + 15px);
-    right: 15px;
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    border: #000 dashed 1px;
-    backdrop-filter: blur( 10px );
-    -webkit-backdrop-filter: blur( 10px );
-    background-color: rgba(0, 0, 0, 0.2);
+@keyframes donut-chart-fill {
+    to {
+        stroke-dasharray: 0 100;
+   }
 }
-.utilfill {
-    display: flex;
+.svg-item {
     position: absolute;
-    bottom: 0;
+    top: 0;
     right: 0;
     width: 100%;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    transition: 1s;
-    background-color: rgb(0, 0, 0);
-    -webkit-animation: filler 1s ease-in-out;
-    -moz-animation: filler 1s ease-in-out;
-    animation: filler 1s ease-in-out;
+    height: 100%;
+    font-size: 15px;
 }
-*/
-@keyframes donut-chart-fill {
-    to { stroke-dasharray: 0 100; }
+.donut-ring {
+    stroke: rgba(0, 0, 0, 0.247);
 }
-    .svg-item {
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        width: 100%;
-        height: 100%;
-        font-size: 15px;
-    }
-    .donut-ring {
-        stroke: rgba(0, 0, 0, 0.247);
-    }
-    
-    .donut-segment {
-        animation: donut-chart-fill 1s reverse ease-in;
-        transform-origin: center;
-        stroke: #000000;
-        transition: calc(var(--toggle) * 1s);
-    }
-    
-    .donut-text {
-        fill: #000000;
-    }
-    
-    .donut-label {
-        font-size: 0.28em;
-        line-height: 1;
-        fill: #000;
-        transform: translateY(0.25em);    
-    }
-    
-    .donut-percent {
-        font-size: 0.45em;
-        fill: white;
-        line-height: 1;
-        transform: translateY(0.45em);
-    }
+.donut-segment {
+    animation: donut-chart-fill 1s reverse ease-in;
+    transform-origin: center;
+    stroke: #000000;
+    transition: calc(var(--toggle) * 1s);
+}
+.donut-text {
+    fill: #000000;
+}
+.donut-label {
+    font-size: 0.28em;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);
+}
+.donut-percent {
+    font-size: 0.45em;
+    fill: white;
+    line-height: 1;
+    transform: translateY(0.45em);
+}
 .cpuframe {
     position: absolute;
     top: 35px;
@@ -406,7 +363,7 @@ html, body {
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
-    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 0 0px 20px 2px rgba(0,0,0,0.6);
 }
 .ramframe, .hot {
     position: absolute;
@@ -419,13 +376,13 @@ html, body {
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
     overflow: hidden;
-    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.6);
+    box-shadow: 0 0px 10px 1px rgba(0,0,0,0.6);
 }
 .ramframefiller {
     transition: calc(var(--toggle) * 1s);
     position: absolute;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: 0%;
     border-bottom-left-radius: 10px;
@@ -435,16 +392,16 @@ html, body {
 .ramtext, .ramtext2 {
     font-size: 15px;
     padding-top: 10px !important;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     color: white;
-    mix-blend-mode: difference; 
-    padding-top: 0px;
+    mix-blend-mode: difference;
+    padding-top: 0;
     text-align: center;
     z-index: 1;
 }
 .ramtext2 {
-    padding-top: 0px !important;
+    padding-top: 0 !important;
 }
 .hot {
     top: 130px;
@@ -479,8 +436,8 @@ html, body {
     position: absolute;
     text-align: center;
     bottom: 5px;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     padding-left: 2px !important;
     padding-right: 2px !important;
     font-size: 15px;
@@ -496,21 +453,21 @@ html, body {
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 10px );
-    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 0 0px 20px 2px rgba(0,0,0,0.6);
 }
 .timespent p{
     color: white;
     font-size: 22px;
     text-align: center;
     padding-top: 10px !important;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 .timebar {
     position: absolute;
     width: 20px;
     height: 0%;
-    bottom: 0px;
+    bottom: 0;
     left: 35px;
     background-color: black;
     border-top-left-radius: 7px;
@@ -521,7 +478,7 @@ html, body {
     position: absolute;
     width: 20px;
     height: 0%;
-    bottom: 0px;
+    bottom: 0;
     left: 5px;
     background-color: black;
     border-top-left-radius: 7px;
@@ -548,10 +505,10 @@ html, body {
     background-image: url("");
     background-repeat: no-repeat;
     background-size: contain;
-    box-shadow: 0px 0px 20px 2px rgba(0,0,0,0.6);
+    box-shadow: 0 0px 20px 2px rgba(0,0,0,0.6);
 }
 .play {
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6) inset;
+    box-shadow: 0 0px 5px 1px rgba(0,0,0,0.6) inset;
     position: absolute;
     bottom: 8px;
     left: 8px;
@@ -585,7 +542,7 @@ html, body {
     height: 30px;
     border-radius: 25%;
     background-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.6) inset;
+    box-shadow: 0 0px 5px 1px rgba(0,0,0,0.6) inset;
 }
 .play2 svg {
     padding: 5px;
