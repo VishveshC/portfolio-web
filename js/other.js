@@ -110,55 +110,7 @@ function checktime(){
     getCurrentTimeDate();
 }
 function formatBytes(bytes,decimals=2){if(!+bytes)return"0 Bytes";const dm=decimals<0?0:decimals,i=Math.floor(Math.log(bytes)/Math.log(1024));return`${parseFloat((bytes/Math.pow(1024,i)).toFixed(dm))}`}
-function terminaltext(){
-    // function([string1, string2],target id,[color1,color2])    
-    consoleText(['Hello!', 'This is Vishvesh C.'], 'text',['black','black']);
-    function consoleText(words, id, colors) {
-    if (colors === undefined) colors = ['#fff'];
-    var visible = true;
-    const con = document.getElementById('console');
-    var letterCount = 1;
-    var x = 1;
-    var waiting = false;
-    var target = document.getElementById(id)
-    target.setAttribute('style', 'color:' + colors[0])
-    window.setInterval(function() {
-        if (letterCount === 0 && waiting === false) {
-        waiting = true;
-        target.innerHTML = words[0].substring(0, letterCount)
-        window.setTimeout(function() {
-            var usedColor = colors.shift();
-            colors.push(usedColor);
-            var usedWord = words.shift();
-            words.push(usedWord);
-            x = 1;
-            target.setAttribute('style', 'color:' + colors[0])
-            letterCount += x;
-            waiting = false;
-        }, 1000)
-        } else if (letterCount === words[0].length + 1 && waiting === false) {
-        waiting = true;
-        window.setTimeout(function() {
-            x = -1;
-            letterCount += x;
-            waiting = false;
-        }, 1000)
-        } else if (waiting === false) {
-        target.innerHTML = words[0].substring(0, letterCount)
-        letterCount += x;
-        }
-    }, 120)
-    window.setInterval(function() {
-        if (visible === true) {
-        con.className = 'console-underscore hidden'
-        visible = false;
-        } else {
-        con.className = 'console-underscore'
-        visible = true;
-        }
-    }, 400)
-    }
-}
+
 function winx() {
     drag_div.style.opacity = "0";
     setTimeout(() => {  drag_div.style.display = "none"; }, 200);
@@ -289,6 +241,7 @@ function litecheck() {
     }
 }
 function playfun() {
+    const panel = document.getElementById('musicname');
     const play = document.getElementById('playbut');
     const pause = document.getElementById('pausebut');
     const track = document.getElementById('track');
@@ -296,13 +249,16 @@ function playfun() {
         pause.style.display = "none";
         play.style.display = "block";
         track.pause();
+        panel.style.transform = "translateY(-22px)";
     } else {
         pause.style.display = "block";
         play.style.display = "none";
         track.play();
+        panel.style.transform = "translateY(22px)";
     }
 }
 function music() {
+    const paneltext = document.getElementById('musictext');
     const play = document.getElementById('playbut');
     const pause = document.getElementById('pausebut');
     const musicpanel = document.getElementById('music');
@@ -333,7 +289,8 @@ function music() {
     track.setAttribute("src", musicurl);
     track.volume = 0.1;
     musicpanel.style.backgroundImage = `url(${albumurl})`;
+    paneltext.textContent = playlist[num];
 }
 
 
-window.onload = music(), litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag(), terminaltext();
+window.onload = music(), litecheck(), cpuutils(), ramutils(), temp(), timespent(), earlytimebar(), checkbattery(), checktime(), drag();

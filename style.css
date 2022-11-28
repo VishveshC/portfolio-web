@@ -503,8 +503,7 @@ html, body {
     height: 80px;
     border-radius: 15px;
     background-image: url("");
-    background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     box-shadow: 0 0px 20px 2px rgba(0,0,0,0.6);
 }
 .play {
@@ -594,12 +593,22 @@ html, body {
 .musicname {
     z-index: 1;
     right: 15px;
-    top: 460px;
+    top: 445px;
     position: absolute;
     width: 80px;
-    height: 40px;
+    height: 30px;
     padding-top: 5px;
     background-color: rgba(255, 255, 255, 0.8);
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    transition: all calc(var(--toggle) * 0.5s) ease-out;
+}
+.musicname p {
+    position: absolute;
+    bottom: 4px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
 }
